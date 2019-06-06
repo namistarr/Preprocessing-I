@@ -57,28 +57,41 @@ table {
 }
 
 /* Variables */
-@link-color: gray;
-@link-color-hover: hotpink;
+@link-color: rgb(141, 141, 141);
+@link-color-hover: rgb(255, 159, 207);
 @font-family: Helvetica, Arial, sans-serif;
 
 /* Mixins */
-
 .bordered {
 	border-left: dotted 1px black;
 	border-right: dotted 1px black;
 	margin-left: 30px;
 }
+.vertical-content-spacing {
+	margin-bottom: 30px;
+}
+
+/* Phone View */
+@media (max-width: 500px) {
+	.nav {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+
 
 html, body {
 	height: 100%;
 	font-family: @font-family
-	line-height: 30px;
 }
 
 .container {
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
+	
 }
 
 nav {
@@ -89,12 +102,9 @@ nav {
 	a {
 		margin-left: 20px;
 		text-decoration: none;
+		color: @link-color;
 	}
 	
-	a:link {
-		color: @link-color;
-	
-		}
 	a:hover {
 		color: @link-color-hover;
 	}
@@ -107,10 +117,7 @@ h4 {
 	font-size: 24px;
 }
 
-img {
-	width: 350px;
-	height: auto;
-	}
+
 
 .button {
 	background-color: #F8F9F9;
@@ -126,6 +133,7 @@ img {
 	border: 2px solid gray;
 	a {
 		text-decoration: none;
+		color: @link-color;
 	}
 	a:hover {
 		color: @link-color-hover;
@@ -137,8 +145,12 @@ img {
 	background-color: #F8F9F9;
 	padding: 30px;
 	.bordered();
-	margin-bottom: 30px;
+	.vertical-content-spacing();
 
+	img {
+		width: 350px;
+		height: auto;
+		}
 	.page-break {
 		width: 100%;
 	}
@@ -153,7 +165,7 @@ img {
 	padding: 20px;
 	justify-content: space-between;
 	.bordered();
-	margin-bottom: 30px;
+	.vertical-content-spacing();
 
 }
 .text-content {
@@ -162,29 +174,32 @@ img {
 		
 }
 
-
-
 .bottom-content {
+	padding: 20px;
+	.bordered();
+	.vertical-content-spacing();
+}
+
+.contact {
 	padding: 20px;
 	.bordered();
 }
 
-
 table {
 	border-collapse: collapse;
 	width: 100%;
-  }
-  
-  td, th {
-	border: 1px solid #F8F9F9  ;
-	text-align: left;
-	padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-	background-color: #F8F9F9  ;
-  }
 
+	td, th {
+		border: 1px solid #F8F9F9  ;
+		text-align: left;
+		padding: 8px;
+	  }
+
+	  tr:nth-child(even) {
+		background-color: #F8F9F9  ;
+	  }
+  }
+  
   footer {
 	 display: flex;
 	 justify-content: center;
